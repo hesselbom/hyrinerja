@@ -31,6 +31,7 @@ md.renderer.rules.table_open = function (tokens, idx, options, env, self) {
 
 const buildDir = path.resolve(__dirname, 'build')
 
+// Handle every file in src except templates
 glob('**/[^_]*', {
   cwd: path.resolve(__dirname, 'src'),
   ignore: 'templates/**/*.pug'
@@ -54,6 +55,7 @@ glob('**/[^_]*', {
   })
 })
 
+// Handle data rendering
 glob('**/*', { cwd: '_data' }, (_, files) => {
   files.forEach(file => {
     const src = path.resolve(__dirname, '_data', file)
