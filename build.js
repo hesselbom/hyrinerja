@@ -59,11 +59,13 @@ glob('**/*', { cwd: '_data' }, (_, files) => {
     const src = path.resolve(__dirname, '_data', file)
     const data = JSON.parse(fs.readFileSync(src))
 
+    if (!data.layout) return
+
     if (data.body) {
       data.body = md.render(data.body)
     }
 
-    const template = path.resolve(__dirname, 'src/templates', 'text.pug')
+    const template = path.resolve(__dirname, 'src/templates', `${data.layout}.pug`)
     const rendered = pug.renderFile(template, data)
     const target = path.resolve(buildDir, file)
 
