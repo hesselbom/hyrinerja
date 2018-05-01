@@ -22,3 +22,20 @@ collections:
 
     editor:
       preview: false
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "_data"
+    extension: "json"
+    create: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "gallery"}
+      - {label: "Title", name: "title", widget: "string"}
+      - label: "Lägenheten"
+        name: "lagenheten"
+        widget: "list"
+        field:
+          - {label: "Image", name: "image", widget: "image"}
+
+    editor:
+      preview: false
