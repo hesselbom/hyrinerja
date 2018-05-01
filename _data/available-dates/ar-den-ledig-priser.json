@@ -1,5 +1,9 @@
 {
   "title": "Är den ledig / priser?",
+  "body": "I hyran ingår el/vatten. \nSlutstädning, inkl. sänglinne och handdukar, tillkommer med **50 €**.\n\nSvart fält i kalendern betyder att det är upptaget.\nGult- lågsäsong\nRött- mellansäsong\nBlått- högsäsong",
+  "price-low": "2550",
+  "price-mid": "3300",
+  "price-high": "3900",
   "tider": [
     {
       "tider": "{\"year\":2018,\"selected\":{\"0-0\":true,\"0-1\":true,\"0-2\":true}}"
