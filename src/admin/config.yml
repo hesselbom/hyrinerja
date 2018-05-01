@@ -12,11 +12,10 @@ slug:
 collections:
   - name: "text" # Used in routes, e.g., /admin/collections/blog
     label: "Text" # Used in the UI
-    folder: "_data" # The path to the folder where the documents are stored
+    folder: "_data/text" # The path to the folder where the documents are stored
     extension: "json"
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "text"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
 
@@ -25,11 +24,10 @@ collections:
 
   - name: "gallery"
     label: "Gallery"
-    folder: "_data"
+    folder: "_data/gallery"
     extension: "json"
     create: true
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "gallery"}
       - {label: "Title", name: "title", widget: "string"}
       - label: "Lägenheten"
         name: "lagenheten"

@@ -34,14 +34,13 @@ const buildDir = path.resolve(__dirname, 'build')
 // Handle every file in src except templates
 glob('**/[^_]*', {
   cwd: path.resolve(__dirname, 'src'),
+  nodir: true,
   ignore: 'templates/**/*.pug'
 }, (_, files) => {
   files.forEach(file => {
     const ext = path.extname(file)
     const src = path.resolve(__dirname, 'src', file)
     const target = path.resolve(buildDir, file)
-
-    if (!fs.lstatSync(src).isFile()) return
 
     mkdirp.sync(path.dirname(target))
 
@@ -56,20 +55,20 @@ glob('**/[^_]*', {
 })
 
 // Handle data rendering
-glob('**/*', { cwd: '_data' }, (_, files) => {
+glob('**/*', { cwd: '_data', nodir: true }, (_, files) => {
   files.forEach(file => {
     const src = path.resolve(__dirname, '_data', file)
+    const targetFile = path.basename(file)
+    const layout = path.dirname(file)
     const data = JSON.parse(fs.readFileSync(src))
-
-    if (!data.layout) return
 
     if (data.body) {
       data.body = md.render(data.body)
     }
 
-    const template = path.resolve(__dirname, 'src/templates', `${data.layout}.pug`)
+    const template = path.resolve(__dirname, 'src/templates', `${layout}.pug`)
     const rendered = pug.renderFile(template, data)
-    const target = path.resolve(buildDir, file.replace('hem.json', 'index.json'))
+    const target = path.resolve(buildDir, targetFile.replace('hem.json', 'index.json'))
 
     mkdirp.sync(path.dirname(target))
 
