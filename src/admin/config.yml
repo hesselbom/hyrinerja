@@ -40,5 +40,18 @@ collections:
         fields:
           - {label: "Image", name: "image", widget: "image"}
 
+  - name: "available-dates"
+    label: "Available Dates"
+    folder: "_data/available-dates"
+    extension: "json"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - label: "Tider"
+        name: "tider"
+        widget: "list"
+        fields:
+          - {label: "Tider", name: "tider", widget: "tider"}
+
     editor:
       preview: false
