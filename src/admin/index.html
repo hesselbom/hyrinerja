@@ -14,6 +14,12 @@
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^1.0.0/dist/cms.js"></script>
 <script>
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
+
+function daysInMonth (year, month) {
+  return new Date(year, month + 1, 0).getDate()
+}
+
 var TiderControl = createClass({
   render: function() {
     var value = JSON.parse(this.props.value || '{}');
