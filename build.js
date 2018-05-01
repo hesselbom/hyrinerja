@@ -67,12 +67,10 @@ glob('**/*', { cwd: '_data' }, (_, files) => {
 
     const template = path.resolve(__dirname, 'src/templates', `${data.layout}.pug`)
     const rendered = pug.renderFile(template, data)
-    const target = path.resolve(buildDir, file)
+    const target = path.resolve(buildDir, file.replace('hem.json', 'index.json'))
 
     mkdirp.sync(path.dirname(target))
 
     fs.writeFileSync(replaceExt(target, '.html'), rendered)
   })
-  // const rendered = pug.renderFile(src)
-  // fs.writeFileSync(replaceExt(target, '.html'), rendered)
 })
