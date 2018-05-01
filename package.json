@@ -1,0 +1,14 @@
+{
+  "name": "hyrinerja",
+  "version": "1.0.0",
+  "author": "Viktor Hesselbom <viktor@hesselbom.net>",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf build && node build.js"
+  },
+  "dependencies": {
+    "glob": "^7.1.2",
+    "mkdirp": "^0.5.1",
+    "pug": "^2.0.3"
+  }
+}
