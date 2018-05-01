@@ -47,11 +47,12 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - label: "Tider"
-        name: "tider"
-        widget: "list"
-        fields:
-          - {label: "Tider", name: "tider", widget: "tider"}
+      - {label: "Tider", name: "tider", widget: "tider"}
+      # - label: "Tider"
+      #   name: "tider"
+      #   widget: "list"
+      #   fields:
+      #     - {label: "Tider", name: "tider", widget: "tider"}
 
     editor:
       preview: false
