@@ -32,8 +32,8 @@ collections:
       - label: "Lägenheten"
         name: "lagenheten"
         widget: "list"
-        field:
-          - {label: "Image", name: "image", widget: "file"}
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
 
     editor:
       preview: false
