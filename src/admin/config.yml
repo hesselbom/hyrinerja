@@ -5,6 +5,10 @@ backend:
 media_folder: "src/uploads"
 public_folder: "/uploads"
 
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
 collections:
   - name: "text" # Used in routes, e.g., /admin/collections/blog
     label: "Text" # Used in the UI
