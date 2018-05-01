@@ -66,6 +66,18 @@ glob('**/*', { cwd: '_data', nodir: true }, (_, files) => {
       data.body = md.render(data.body)
     }
 
+    const current = path.basename(targetFile, '.json')
+    data.resize = (img, size) => {
+      return img
+    }
+    data.menu = [
+      { href: '/', label: 'Hem', active: current === 'hem' },
+      { href: '/lediga-tider', label: 'Är den ledig / priser?', active: current === 'lediga-tider' },
+      { href: '/lagenheten', label: 'Lägenheten', active: current === 'lagenheten' },
+      { href: '/bilder', label: 'Bilder', active: current === 'bilder' },
+      { href: '/hur-bokar-jag', label: 'Hur bokar jag?', active: current === 'hur-bokar-jag' },
+    ]
+
     const template = path.resolve(__dirname, 'src/templates', `${layout}.pug`)
     const rendered = pug.renderFile(template, data)
     const target = path.resolve(buildDir, targetFile.replace('hem.json', 'index.json'))

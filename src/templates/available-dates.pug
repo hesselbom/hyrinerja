@@ -1,5 +1,34 @@
 extends ../_layout.pug
 
 block content
-  h1 #{title}
-  div !{body}
+  -
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
+
+    function daysInMonth (year, month) {
+      return new Date(year, month + 1, 0).getDate()
+    }
+
+    function sortOnYear (a, b) {
+      return parseInt(a.year) - parseInt(b.year)
+    }
+
+  | !{body}
+  each item in tider.map(t => JSON.parse(t.tider)).sort(sortOnYear)
+    h3 Lediga tider &mdash; #{item.year}
+    table.ledigt(cellspacing='2', cellpadding='0')
+      tr
+        td.month &nbsp;
+        - for (var i = 1; i <= 31; i++)
+          td #{i}
+      - for (var month = 0; month < 12; month++)
+        tr
+          td.month #{months[month]}
+          - for (var j = 0; j < daysInMonth(parseInt(item.year), month); j++)
+            - var key = `${month}-${j}`
+            td(class=`${month < 4 || month > 8 ? 's1' : month < 6 || month === 8 ? 's2' : 's3'} ${item.selected[key] ? 'taken' : ''}`) &nbsp;
+
+    ul.ledigt-info
+      li.taken Bokad
+      li.s1 Lågsäsong &mdash; #{price_low}kr / v
+      li.s2 Mellansäsong &mdash; #{price_medium}kr / v
+      li.s3 Högsäsong &mdash; #{price_high}kr / v

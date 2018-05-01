@@ -1,5 +1,26 @@
 extends ../_layout.pug
 
+block extra_header
+  script(type='text/javascript', src='/js/prototype.js')
+  script(type='text/javascript', src='/js/scriptaculous.js?load=effects,builder')
+  script(type='text/javascript', src='/js/lightbox.js')
+  link(rel='stylesheet', type='text/css', href='/style/lightbox.css', media='screen')
+
 block content
-  h1 #{title}
-  div !{body}
+  h2 Lägenheten
+  ul.screenshots
+    each img in lagenheten
+      if img
+        li: a(href=img.image, rel='lightbox[bilder-1]')
+          img(src=resize(img.image, 150), role='presentation')
+  br.clear
+  p.centered Klicka på bilderna för att se dem större.
+  p &nbsp;
+  h2 Nerja
+  ul.screenshots
+    each img in nerja
+      if img
+        li: a(href=img.image, rel='lightbox[nerja]')
+          img(src=resize(img.image, 150), role='presentation')
+  br.clear
+  p.centered Klicka på bilderna för att se dem större.

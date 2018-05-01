@@ -1,3 +1,9 @@
+/*
+
+Stylesheet by Viktor Hesselbom, hesselboom.com
+
+*/
+
 * { margin:0; padding:0; }
 body { background:#f6efe1 url('/img/background.jpg') repeat-x; font:12px Century Gothic, sans-serif; color:#333; text-align:center; padding:20px; }
 .main { width:713px; background:#fff; margin:20px auto; border-left:1px solid #ebe2d7; border-right:1px solid #ebe2d7; border-bottom:3px solid #ebe2d7; }
@@ -5,7 +11,10 @@ body { background:#f6efe1 url('/img/background.jpg') repeat-x; font:12px Century
 h1 { font-size:24px; text-align:center; padding-top:25px; }
 h2 { font-size:22px; text-align:center; font-weight:normal; padding-bottom:10px; }
 h3 { font-size:18px; text-align:center; font-weight:normal; padding-top:10px; }
-div#menu { margin:20px 0; color:#666; }
+#menu { margin:20px 0; color:#666; list-style: none; padding: 0 }
+#menu li { margin: 0; padding: 0; display: inline }
+#menu li:after { content: ' | '; }
+#menu li:last-child:after { content: none; }
 a { color:#e14141; text-decoration:none; }
 a.selected { text-decoration:underline; }
 a:hover { text-decoration:underline; }
