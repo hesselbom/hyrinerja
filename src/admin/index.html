@@ -22,20 +22,20 @@ function daysInMonth (year, month) {
 
 var TiderControl = createClass({
   render: function() {
-    var onChange = this.props.onChange;
-    var value = JSON.parse(this.props.value || '{}');
+    var onChange = this.props.onChange
+    var value = JSON.parse(this.props.value || '{}')
 
     if (!value.year) value.year = new Date().getFullYear()
     if (!value.selected) value.selected = {}
 
     var onInput = function(e) {
       value.year = e.target.value
-      onChange(JSON.stringify(value));
+      onChange(JSON.stringify(value))
     }
     var onClick = function(key) {
       return function(e) {
         value.selected[key] = !value.selected[key]
-        onChange(JSON.stringify(value));
+        onChange(JSON.stringify(value))
       }
     }
 
@@ -54,11 +54,18 @@ var TiderControl = createClass({
           })
         )})
       )
-      )
+    )
   }
-});
+})
 
-CMS.registerWidget('tider', TiderControl);
+var TiderPreview = createClass({
+  render: function() {
+    var year = JSON.parse(this.props.value || '{}').year || 'No year'
+    return h('p', {}, year)
+  }
+})
+
+CMS.registerWidget('tider', TiderControl, TiderPreview);
 </script>
 <style>
   .cal-container { min-width: 652px }
