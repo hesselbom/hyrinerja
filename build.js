@@ -48,7 +48,7 @@ glob('**/[^_]*', {
       const rendered = pug.renderFile(src)
       fs.writeFileSync(replaceExt(target, '.html'), rendered)
     } else {
-      const data = fs.readFileSync(src, 'utf-8')
+      const data = fs.readFileSync(src)
       fs.writeFileSync(target, data)
     }
   })
