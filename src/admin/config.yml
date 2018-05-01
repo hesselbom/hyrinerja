@@ -29,12 +29,11 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Image Test", name: "image_test", widget: "image"}
       - label: "Lägenheten"
         name: "lagenheten"
         widget: "list"
         field:
-          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Image", name: "image", widget: "file"}
 
     editor:
       preview: false
