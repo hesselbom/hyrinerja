@@ -46,7 +46,7 @@ var TiderControl = createClass({
         ),
         Array.from({ length: 12 }, function (_, month) { return h('tr', {},
           h('td', { className: 'month' }, months[month]),
-          Array.from({ length: daysInMonth(year, month) || 0 }, function (_, day) {
+          Array.from({ length: daysInMonth(value.year, month) || 0 }, function (_, day) {
             var key = `${month}-${day}`
             var className = `${month < 4 || month > 8 ? 's1' : month < 6 || month === 8 ? 's2' : 's3'} ${value.selected[key] ? 'taken' : ''}`
             return h('td', { className: className, onClick: onClick(key) })
