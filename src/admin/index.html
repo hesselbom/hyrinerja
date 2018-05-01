@@ -22,6 +22,7 @@ function daysInMonth (year, month) {
 
 var TiderControl = createClass({
   render: function() {
+    var onChange = this.props.onChange;
     var value = JSON.parse(this.props.value || '{}');
 
     if (!value.year) value.year = new Date().getFullYear()
@@ -29,17 +30,17 @@ var TiderControl = createClass({
 
     var onInput = function(e) {
       value.year = e.target.value
-      this.props.onChange(JSON.stringify(value));
+      onChange(JSON.stringify(value));
     }
     var onClick = function(key) {
       return function(e) {
         value.selected[key] = !value.selected[key]
-        this.props.onChange(JSON.stringify(value));
+        onChange(JSON.stringify(value));
       }
     }
 
     return h('div', { className: 'cal-container' },
-      h('input', { type: 'number', value: value.year, onInput: onInput }),
+      h('input', { type: 'number', value: value.year, onInput: onInput, className: 'nc-controlPane-widget' }),
       h('table', { className: 'calendar', cellspacing: 2, cellpadding: 0 },
         h('tr', {},
           Array.from({ length: 32 }, function (_, i) { return h('td', {}, i > 0 ? i : '') })
