@@ -4,5 +4,19 @@
     {
       "image": "/uploads/hus1.jpg"
     }
+  ],
+  "nerja": [
+    {
+      "image": "/uploads/nerja1.jpg"
+    },
+    {
+      "image": "/uploads/nerja2.jpg"
+    },
+    {
+      "image": "/uploads/nerja3.jpg"
+    },
+    {
+      "image": "/uploads/nerja4.jpg"
+    }
   ]
 }
