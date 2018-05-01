@@ -9,6 +9,7 @@
   "dependencies": {
     "glob": "^7.1.2",
     "mkdirp": "^0.5.1",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "replace-ext": "^1.0.0"
   }
 }

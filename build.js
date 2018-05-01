@@ -3,6 +3,7 @@ const fs = require('fs')
 const pug = require('pug')
 const glob = require('glob')
 const mkdirp = require('mkdirp')
+const replaceExt = require('replace-ext')
 
 const buildDir = path.resolve(__dirname, 'build')
 
@@ -18,7 +19,7 @@ glob('**/[^_]*', { cwd: path.resolve(__dirname, 'src') }, (_, files) => {
 
     if (ext === '.pug') {
       const rendered = pug.renderFile(src)
-      fs.writeFileSync(target, rendered)
+      fs.writeFileSync(replaceExt(target, '.html'), rendered)
     } else {
       const data = fs.readFileSync(src, 'utf-8')
       fs.writeFileSync(target, data)
