@@ -24,33 +24,44 @@ var TiderControl = createClass({
   render: function() {
     var value = JSON.parse(this.props.value || '{}');
 
+    if (!value.year) value.year = new Date().getFullYear()
+    if (!value.selected) value.selected = {}
+
+    var onInput = function(e) {
+      value.year = e.target.value
+      this.props.onChange(JSON.stringify(value));
+    }
     var onClick = function(key) {
       return function(e) {
-        value[key] = !value[key]
+        value.selected[key] = !value.selected[key]
         this.props.onChange(JSON.stringify(value));
       }
     }
 
-    return h('table', { className: 'calendar', cellspacing: 2, cellpadding: 0 },
-      h('tr', {},
-        Array.from({ length: 32 }, function (_, i) { return h('td', {}, i > 0 ? i : '') })
-      ),
-      Array.from({ length: 12 }, function (_, month) { return h('tr', {},
-        h('td', { className: 'month' }, months[month]),
-        Array.from({ length: daysInMonth(year, month) || 0 }, function (_, day) {
-          var key = `${month}-${day}`
-          var className = `${month < 4 || month > 8 ? 's1' : month < 6 || month === 8 ? 's2' : 's3'} ${value[key] ? 'taken' : ''}`
-          return h('td', { className: className, onClick: onClick(key) })
-        })
-      )})
-    )
+    return h('div', { className: 'cal-container' },
+      h('input', { type: 'number', value: value.year, onInput: onInput }),
+      h('table', { className: 'calendar', cellspacing: 2, cellpadding: 0 },
+        h('tr', {},
+          Array.from({ length: 32 }, function (_, i) { return h('td', {}, i > 0 ? i : '') })
+        ),
+        Array.from({ length: 12 }, function (_, month) { return h('tr', {},
+          h('td', { className: 'month' }, months[month]),
+          Array.from({ length: daysInMonth(year, month) || 0 }, function (_, day) {
+            var key = `${month}-${day}`
+            var className = `${month < 4 || month > 8 ? 's1' : month < 6 || month === 8 ? 's2' : 's3'} ${value.selected[key] ? 'taken' : ''}`
+            return h('td', { className: className, onClick: onClick(key) })
+          })
+        )})
+      )
+      )
   }
 });
 
 CMS.registerWidget('tider', TiderControl);
 </script>
 <style>
-  .calendar { min-width: 652px; margin:20px 0 0 0; background:#CAB396; }
+  .cal-container { min-width: 652px }
+  .calendar { margin:20px 0 0 0; background:#CAB396; }
   .calendar td { width:18px; height:18px; text-align:center; background:#f6efe1; font-size:11px; }
   .calendar td.month { width:28px; text-align:right; padding-right:4px; }
   .calendar td.s1 { background:#ffff55; }
