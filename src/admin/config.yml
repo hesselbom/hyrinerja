@@ -47,6 +47,10 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Pris lågsäsong", name: "price-low", widget: "string"}
+      - {label: "Pris mellansäsong", name: "price-mid", widget: "string"}
+      - {label: "Pris högsäsong", name: "price-high", widget: "string"}
       - label: "Tider"
         name: "tider"
         widget: "list"

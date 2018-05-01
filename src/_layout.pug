@@ -3,7 +3,12 @@ block variables
 doctype html
 html
   head
+    meta(charset='utf-8')
     title Hyr i Nerja - #{title}
+    meta(name='description' content='Hyr lägenhet i Nerja, Spanien')
+    meta(name='keywords' content='hyr, lägenhet, nerja, spanien')
+    link(rel='stylesheet' type='text/css' href='/style.css')
+
     script(src='https://identity.netlify.com/v1/netlify-identity-widget.js')
     script.
       if (window.netlifyIdentity) {
@@ -16,4 +21,20 @@ html
         })
       }
   body
-    block content
+    .main
+      img.front-img(src="/img/screen.jpg" alt="Nerja")
+    .main
+      h1 Välkommen till min lägenhet i Nerja - Spanien
+      h2 Vindslägenhet m. takterass i Gamla stan
+      #menu
+        a.selected(href="/") Hem
+        |  | 
+        a(href="/lediga-tider") Är den ledig / priser?
+        |  | 
+        a(href="/lagenheten") Lägenheten
+        |  | 
+        a(href="/bilder") Bilder
+        |  | 
+        a(href="/hur-bokar-jag") Hur bokar jag?
+    .main.text
+      block content

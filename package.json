@@ -4,6 +4,7 @@
   "author": "Viktor Hesselbom <viktor@hesselbom.net>",
   "private": true,
   "scripts": {
+    "start": "yarn build && cd build && serve",
     "build": "rm -rf build && node build.js"
   },
   "dependencies": {

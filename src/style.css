@@ -1,0 +1,34 @@
+* { margin:0; padding:0; }
+body { background:#f6efe1 url('/img/background.jpg') repeat-x; font:12px Century Gothic, sans-serif; color:#333; text-align:center; padding:20px; }
+.main { width:713px; background:#fff; margin:20px auto; border-left:1px solid #ebe2d7; border-right:1px solid #ebe2d7; border-bottom:3px solid #ebe2d7; }
+.text { padding:10px 15px; width:683px; }
+h1 { font-size:24px; text-align:center; padding-top:25px; }
+h2 { font-size:22px; text-align:center; font-weight:normal; padding-bottom:10px; }
+h3 { font-size:18px; text-align:center; font-weight:normal; padding-top:10px; }
+div#menu { margin:20px 0; color:#666; }
+a { color:#e14141; text-decoration:none; }
+a.selected { text-decoration:underline; }
+a:hover { text-decoration:underline; }
+p { text-align:left; margin:10px 0; }
+.ledigt { margin:10px auto 0 auto; background:#CAB396; }
+.ledigt td { width:18px; height:18px; text-align:center; background:#f6efe1; font-size:11px; }
+.ledigt td.month { width:28px; text-align:right; padding-right:4px; }
+.ledigt td.s1 { background:#ffff55; }
+.ledigt td.s2 { background:#ff2a55; }
+.ledigt td.s3 { background:#4798e3; }
+html .ledigt td.taken { background:#222; }
+.ledigt-info { list-style-type:none; width:650px; margin:10px auto; text-align:left; }
+ .ledigt-info li { padding-left:6px; margin:4px 0; }
+ .ledigt-info li.taken { border-left:8px solid #222; }
+ .ledigt-info li.s1 { border-left:8px solid #ffff55; }
+ .ledigt-info li.s2 { border-left:8px solid #ff2a55; }
+ .ledigt-info li.s3 { border-left:8px solid #4798e3; }
+#send-mail label { float:left; width:120px; text-align:left; padding-top:5px; }
+#send-mail input,textarea { float:left; text-align:left; font:12px Century Gothic, sans-serif; padding:3px 4px; margin-bottom:10px; }
+.screenshots { list-style-type:none; width:470px; /*620px*/ margin:0 auto; }
+ .screenshots li { float:left; padding-right:5px; }
+ .screenshots img { border:0; width:150px; height:150px; }
+.clear { clear:both; }
+.centered { text-align:center; }
+.error { color:#ff0000; font-size:14px; }
+.front-img { display: block; }
