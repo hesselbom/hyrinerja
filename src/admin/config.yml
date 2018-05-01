@@ -33,7 +33,7 @@ collections:
         name: "lagenheten"
         widget: "list"
         field:
-          - {label: "Image", name: "image", widget: "image"}
+          - {label: Image, name: image, widget: image}
 
     editor:
       preview: false
