@@ -34,6 +34,11 @@ collections:
         widget: "list"
         fields:
           - {label: "Image", name: "image", widget: "image"}
+      - label: "Nerja"
+        name: "nerja"
+        widget: "list"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
 
     editor:
       preview: false
