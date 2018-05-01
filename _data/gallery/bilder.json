@@ -2,7 +2,34 @@
   "title": "Bilder",
   "lagenheten": [
     {
-      "image": ""
+      "image": "/uploads/hus1.jpg"
+    },
+    {
+      "image": "/uploads/hus2.jpg"
+    },
+    {
+      "image": "/uploads/hus3.jpg"
+    },
+    {
+      "image": "/uploads/hus4.jpg"
+    },
+    {
+      "image": "/uploads/hus5.jpg"
+    },
+    {
+      "image": "/uploads/hus6.jpg"
+    },
+    {
+      "image": "/uploads/hus7.jpg"
+    },
+    {
+      "image": "/uploads/hus8.jpg"
+    },
+    {
+      "image": "/uploads/hus9.jpg"
+    },
+    {
+      "image": "/uploads/hus10.jpg"
     }
   ],
   "nerja": [
